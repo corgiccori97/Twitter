@@ -32,10 +32,15 @@ const Create: NextPage = () => {
                 <span className='font-bold text-2xl'>계정을 생성하세요</span>
                 <input placeholder="이름" type="text" className='border border-gray-300 max-w-full w-full p-2 mt-5 rounded-md'/>
                 <input placeholder="휴대폰" type="phone" className='border border-gray-300 max-w-full w-full p-2 mt-5 rounded-md' />
-                <input placeholder="생년월일" type="date" className='border border-gray-300 max-w-full w-full p-2 mt-5 rounded-md' />
+                <input type="date" className='border border-gray-300 max-w-full w-full p-2 mt-5 rounded-md' />
                 <button className='bg-black text-white rounded-3xl font-bold py-2 px-10 block max-w-full text-center w-3/4 mx-auto mt-5'>계정 만들기</button>
             </form>
-
+            <span className='text-sm absolute left-1/4 mt-2'>
+                이미 계정이 있으신가요?
+                <Link href="/log-in">
+                <button className='text-[#3BA9EE] font-medium'> 로그인</button>
+                </Link>
+            </span>
         </div>
         </Layout>
     );
