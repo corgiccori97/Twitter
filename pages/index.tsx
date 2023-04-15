@@ -1,8 +1,10 @@
 import React from "react";
 import Layout from './components/layout';
+import Nav from './components/nav';
 export default function Home() {
   return (
   <>
+  <Nav />
   <h1>Home</h1>
   {/*nav 바꾸기*/}
   <nav>For you | Following</nav>
@@ -22,6 +24,7 @@ export default function Home() {
 
   <div>
     {/*유저정보*/}
+    
     <div>
       <img />
       <span>UserId</span>
