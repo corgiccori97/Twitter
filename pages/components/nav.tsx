@@ -3,7 +3,7 @@ import Link from 'next/link';
 export default function Nav() {
     return (
         <>
-        <nav className='flex flex-col space-y-5 px-2 items-center'>
+        <nav className='flex flex-col space-y-5 px-4 items-center'>
             <Link href="/">
             <svg viewBox="328 355 335 276" 
             className='w-8 h-8 fill-[#3BA9EE] cursor-pointer'>
