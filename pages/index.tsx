@@ -7,23 +7,23 @@ export default function Home() {
   <div className='flex mt-5'>
   <Nav />
   <div className='border h-[100vh] border-gray-100 w-[0.1px]' />
-  <div className='px-4'>
+  <div className='px-4 w-3/4'>
   <header className='flex flex-col'>
-    <h1 className='font-extrabold text-2xl'>Home</h1>
-    <div className='flex justify-between'>
+    <h1 className='font-extrabold text-2xl mb-8'>Home</h1>
+    <div className='flex justify-around items-center mb-2'>
       <span>For you</span>
       <span>Following</span>
     </div>
     <hr />
     <div className='mt-3 flex space-x-4 items-center'>
     <svg 
-    className='w-12 h-12 fill-gray-600 border rounded-full p-[2px] bg-gray-200'
+    className='w-14 h-14 fill-gray-600 border rounded-full p-[2px] bg-gray-200'
     fill="none" stroke="currentColor" strokeWidth="0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"></path>
     </svg>
-    <span className='text-gray-400'>What's happening?</span>
+    <span className='text-gray-400 text-xl'>What's happening?</span>
     </div>
-    <div className='flex items-center around'>
+    <div className='flex items-center justify-between pl-16 mt-4'>
       <div className='flex space-x-3'>
         <svg 
         className='w-6 h-6'
@@ -62,6 +62,7 @@ export default function Home() {
   </header>
   <hr className='my-2' />
   <Tweet profile='f' username="룽" id="abcdefg" createdtime="9h" contents="홍유면피" liked={true} />
+  <Tweet profile="d" username="코기" id="corgiccori" createdtime='10h' contents="우리강아지귀엽다" liked={true} />
   </div>
   </div>
   );
