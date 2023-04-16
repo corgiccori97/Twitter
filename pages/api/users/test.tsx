@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import client from "../../lib/client";
+import client from "../../../lib/client/client";
 
 export default async function handler(
   req: NextApiRequest,

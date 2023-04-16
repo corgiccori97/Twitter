@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import Layout from './components/layout';
 import Link from 'next/link';
 import { useForm } from "react-hook-form";
+import useMutation from '../lib/client/useMutation';
 
 interface LoginForm {
     id: string;
@@ -9,9 +10,10 @@ interface LoginForm {
 }
 
 const Login:NextPage = () => {
+    const [enter, {loading, data, error}] = useMutation("/api/users/log-in");
     const { register, reset, handleSubmit } = useForm<LoginForm>();
     const onValid = (data:LoginForm) => {
-         console.log(data);
+         
     }
     return (
         <Layout title="트위터에 로그인하기">
