@@ -1,8 +1,18 @@
 import type { NextPage } from 'next';
 import Layout from './components/layout';
 import Link from 'next/link';
+import { useForm } from "react-hook-form";
+
+interface LoginForm {
+    id: string;
+    password: string;
+}
 
 const Login:NextPage = () => {
+    const { register, reset, handleSubmit } = useForm<LoginForm>();
+    const onValid = (data:LoginForm) => {
+         console.log(data);
+    }
     return (
         <Layout title="트위터에 로그인하기">
             <div className='flex flex-col space-y-6 my-6 relative'>
@@ -18,8 +28,18 @@ const Login:NextPage = () => {
                 </button>
                 <hr />
             </div>
-            <form className='flex flex-col'>
-                <input placeholder="휴대폰 번호, 이메일 주소 또는 사용자 이름" type="text" className='border border-gray-300 max-w-full w-3/4 p-2 mt-5 rounded-md mx-auto'/>
+            <form onSubmit={handleSubmit(onValid)}
+            className='flex flex-col'>
+                <input 
+                {...register("id", {
+                    required:true,
+                })}
+                placeholder="휴대폰 번호, 이메일 주소 또는 사용자 이름" type="text" className='border border-gray-300 max-w-full w-3/4 p-2 mt-5 rounded-md mx-auto'/>
+                <input 
+                {...register("password", {
+                    required:true,
+                })}
+                placeholder="비밀번호" type="password" className='border border-gray-300 max-w-full w-3/4 p-2 mt-5 rounded-md mx-auto'/>
                 <button className='bg-black text-white rounded-3xl font-bold py-2 px-10 block max-w-full text-center w-3/4 mx-auto mt-5'>비밀번호를 잊으셨나요?</button>
             </form>
             <span className='text-sm absolute left-1/4 mt-2'>

@@ -1,8 +1,22 @@
 import type { NextPage } from 'next';
 import Link from 'next/link';
 import Layout from './components/layout';
+import { useForm, FieldErrors } from 'react-hook-form';
 
+interface UserProps {
+    username: string;
+    phone: string;
+    birthday: string;
+    password: string;
+}
 const Create: NextPage = () => {
+    const { register, handleSubmit, reset } = useForm<UserProps>();
+    const onValid = (data:UserProps) => {
+        console.log("I'm valid ~~~");
+    };
+    const onInValid = (errors:FieldErrors) => {
+        console.log(errors);
+    }
     return(
         <Layout title="지금 트위터에 가입하세요">
         <div>
@@ -28,11 +42,32 @@ const Create: NextPage = () => {
                 <button className='text-[#3BA9EE] font-medium'> 로그인</button>
                 </Link>
             </span>
-            <form className='mt-3 p-4'>
+            <form 
+            onSubmit={handleSubmit(onValid, onInValid)}
+            className='mt-3 p-4'>
                 <span className='font-bold text-2xl'>계정을 생성하세요</span>
-                <input placeholder="이름" type="text" className='border border-gray-300 max-w-full w-full p-2 mt-5 rounded-md'/>
-                <input placeholder="휴대폰" type="phone" className='border border-gray-300 max-w-full w-full p-2 mt-5 rounded-md' />
-                <input type="date" className='border border-gray-300 max-w-full w-full p-2 mt-5 rounded-md' />
+                <input 
+                {...register("username", {
+                    required:true,
+                })}
+                placeholder="이름" type="text" className='border border-gray-300 max-w-full w-full p-2 mt-5 rounded-md' />
+
+                <input 
+                {...register("phone")}
+                placeholder="휴대폰" type="phone" className='border border-gray-300 max-w-full w-full p-2 mt-5 rounded-md' />
+                
+                <input 
+                {...register("birthday", {
+                    required:true,
+                })}
+                type="date" className='border border-gray-300 max-w-full w-full p-2 mt-5 rounded-md' />
+
+                <input 
+                {...register("password", {
+                    required:true,
+                })}
+                type="password" className='border border-gray-300 max-w-full w-full p-2 mt-5 rounded-md' placeholder="비밀번호" />
+
                 <button className='bg-black text-white rounded-3xl font-bold py-2 px-10 block max-w-full text-center w-3/4 mx-auto mt-5'>계정 만들기</button>
             </form>
             <span className='text-sm absolute left-1/4 mt-2'>

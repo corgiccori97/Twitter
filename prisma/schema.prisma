@@ -2,10 +2,23 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+  provider     = "prisma-client-js"
+  relationMode = "prisma"
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:./dev.db"
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  phone     Int?     @unique
+  email     String?  @unique
+  username  String
+  profile   String?
+  img       String?
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
